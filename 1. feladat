@@ -1,10 +1,14 @@
+
 install.packages("rjson")
 library("rjson")
 library("foreign")
 library("openxlsx")
 
+### A munkakönyvtárat be kell állítani oda, ahol a kívánt elemek vannak!
+setwd("D:/KRE - Társadalmi viselkedéselemző MA/I. Félév/R programozás/Beadando")
+
 beolvas1 <- function ( adatfile=NULL , adatfile2=NULL, adatfile3=NULL, adatfile4=NULL) {
-    
+  
 xadat   <- NULL
 sadat   <- NULL
 jadat   <- NULL
@@ -23,9 +27,10 @@ csadat  <- NULL
       
                     } else if ((gregexpr( ".csv"  , i) > 1  )) {
                       csadat <- as.data.frame(read.csv(i)) } 
-                          else { print (paste(i ,"nem megfelelő formátum"))}
-  }
+                          else { warning (paste(i ,"nem megfelelő formátum"))}
+}
   lista1 <- list(xadat, sadat, jadat, csadat)
-  lista1 <- lista1[-(which(sapply(lista1,is.null),arr.ind=TRUE))]
+  if (is.null(xadat) | is.null(sadat) | is.null(jadat) | is.null(csadat) ) {
+  lista1 <- lista1[-(which(sapply(lista1,is.null),arr.ind=TRUE))] }
   print( lista1 )
 }
