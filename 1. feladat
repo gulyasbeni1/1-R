@@ -1,3 +1,6 @@
+#1. Hozz létre egy fgv-t, amely ".csv", ".sav", ".json" vagy ".xlsx" [első munkalap] fájlneveket 
+#fogad el bemenetként (akár többet is), és azokat automatikusan beolvassa és egy listába összefűzi, 
+#úgy hogy minden eleme egy data.frame formátum legyen.
 
 install.packages("rjson")
 library("rjson")
