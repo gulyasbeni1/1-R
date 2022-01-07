@@ -19,16 +19,16 @@ csadat  <- NULL
 
   for(i in c(adatfile , adatfile2, adatfile3, adatfile4)) {
     
-    if ((gregexpr( ".xlsx"  , i) > 1  ))  {
+    if ((gregexpr( ".xlsx"  , i) >= 1  ))  {
       xadat <- as.data.frame(read.xlsx( i )) 
       
-        } else if ((gregexpr( ".sav"  , i) > 1  )) {
+        } else if ((gregexpr( ".sav"  , i) >= 1  )) {
          sadat <- as.data.frame(read.spss(i))
       
-             } else if  ((gregexpr( ".json"  , i) > 1  )) { 
+             } else if  ((gregexpr( ".json"  , i) >= 1  )) { 
                jadat <- as.data.frame( fromJSON(file = i))
       
-                    } else if ((gregexpr( ".csv"  , i) > 1  )) {
+                    } else if ((gregexpr( ".csv"  , i) >= 1  )) {
                       csadat <- as.data.frame(read.csv(i)) } 
                           else { warning (paste(i ,"nem megfelelő formátum"))}
 }
