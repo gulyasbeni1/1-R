@@ -1,4 +1,3 @@
-setwd("D:/KRE - Társadalmi viselkedéselemző MA/I. Félév/R programozás/Beadando")
 install.packages('plyr')
 library(foreign)
 library(pastecs)
@@ -27,3 +26,13 @@ for (i in 1:length(colnames(adat) ) ) {
     df<- list(df[1,])
     ered<- c(ered, df) 
     }
+       else if (class(adat[[i]])== "factor") {
+        df2 <-count(adat[,i]) 
+      ered<- list(ered,df2)
+      }
+  else {   hibás <- (paste("Az adatfile következő sora nem vizsgálható:", i )) 
+  ered <- c(ered , hibás) 
+  } 
+  }
+as.list(ered)
+}
