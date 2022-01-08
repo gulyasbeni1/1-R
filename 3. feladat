@@ -1,3 +1,7 @@
+#3. Hozz létre egy fgv-t, amelyik egy ".sav" fájlt vár bemenetként, kimenetként pedig készít minden változóról
+#egy leíró statisztikát, amit egy listába tesz bele. Ez a lista legyen a kimenet. Ha folytonos a változó, akkor
+#szórás, átlag, range, median az eredmény, ha kategóriális, akkor pedig a gyakoriság legyen az eredmény.
+
 ######## Ezzel az  a gond, hogy sok felesleges listaelemet készít, de ennek ellenére szerintem működik.
 
 install.packages('plyr')
