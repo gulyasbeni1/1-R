@@ -1,0 +1,26 @@
+##### Sajnos csak úgy tudtam megoldani, hogy  1. listázza az összemergelt elemeket ; 2. mindent mergeljen össze
+
+library(foreign)
+
+fgv <- function ( lista ) {
+if (!is.list(lista)) {
+  stop("Nem lista formátum a bemenet")
+}
+  
+for (a in 1 : ( length(lista) -1 ) ) {
+  if (!is.data.frame( lista[[ a ]]))  {
+    stop { paste("A következő listaelem nem data.frame :" , a )
+      }
+  }
+}
+  
+  ered<- NULL
+  i<- 1 
+  
+   for (i in 1 : ( length(lista) -1 )) { 
+     
+     df <- merge.data.frame(lista[[i]], lista [[i+1]], all=TRUE)
+     ered <- list(ered , df )
+   }
+    print(ered)
+}
