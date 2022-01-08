@@ -1,7 +1,6 @@
 ##### Sajnos csak úgy tudtam megoldani, hogy  1. listázza az összemergelt elemeket ; 2. mindent mergeljen össze
 
 library(foreign)
-
 fgv <- function ( lista ) {
 if (!is.list(lista)) {
   stop("Nem lista formátum a bemenet")
