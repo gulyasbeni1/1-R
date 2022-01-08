@@ -1,3 +1,5 @@
+######## Ezzel az  a gond, hogy sok felesleges listaelemet készít, de ennek ellenére szerintem működik.
+
 install.packages('plyr')
 library(foreign)
 library(pastecs)
