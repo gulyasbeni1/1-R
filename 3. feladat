@@ -1,0 +1,29 @@
+setwd("D:/KRE - Társadalmi viselkedéselemző MA/I. Félév/R programozás/Beadando")
+install.packages('plyr')
+library(foreign)
+library(pastecs)
+library(plyr)
+
+
+fgv <- function ( adatfile ) {
+  
+  if (!(gregexpr( ".sav"  , adatfile ) >= 1  )) {
+   stop(paste( adatfile ,"nem .sav formátum"))}
+      
+  
+adat <-  read.spss( adatfile , 
+                   rownames=FALSE, 
+                   stringsAsFactors=TRUE, 
+                   to.data.frame = TRUE,
+                   reencode="UTF-8")
+
+ered<-NULL
+for (i in 1:length(colnames(adat) ) ) {
+  if (class(adat[[i]])== "numeric") {
+    df<- data.frame("Átlag" = mean(adat[,i], na.rm=1), 
+                    "Szórás" =sd(adat[,i], na.rm=1),
+                    "Medián" =median(adat[,i], na.rm=1),
+                    "Range" =range(adat[,i], na.rm=1))
+    df<- list(df[1,])
+    ered<- c(ered, df) 
+    }
