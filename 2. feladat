@@ -1,5 +1,10 @@
 ##### Sajnos csak úgy tudtam megoldani, hogy  1. listázza az összemergelt elemeket ; 2. mindent mergeljen össze
 
+#2. Hozz létre egy generális fgv-t, amely listát vár bemenetként, amely listának minden eleme egy data.frame. 
+#A fgv  próbálja meg ezeket összefűzni automatikusan. Ha sikerül összeilleszteni -akár csak néhányat közölük, 
+#akkor ezt végezze el, és egy attributumban adja hozzá az eredmény data.frame-hez, hogy mely listaelemeket
+#hogyan fűzött összefűzi. Majd az eredmény legyen ez a data.frame.
+
 library(foreign)
 fgv <- function ( lista ) {
 if (!is.list(lista)) {
